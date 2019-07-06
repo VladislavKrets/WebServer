@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Documentation</title>
+    <link rel="stylesheet" type="text/css" href="../css/index.css" ${src}="../css/index.css">
+</head>
+<body>
+    <div class="main_block">
+        <h1>
+            Web server library documentation
+        </h1>
+    </div>
+    <div class="main_block">
+        <h2>
+            It is easy to use library, which will relieve you from deploying your code to any web server.<br>
+            This library is using java sockets, so it can work from .jar application.
+        </h2>
+    </div>
+    <div class="main_block">
+        <h1>
+            Quickstart<br>
+        </h1>
+        <h2>
+            Your first easy web application<br>
+            After importing library create some class and add this code
+        </h2>
+        <code>
+public static void main(String[] args) throws IOException {
+    PageMapperContainer pageMapperContainer = PageMapperContainer.getInstance();
+    pageMapperContainer.addPage(new PageMapperBuilder()
+           .setPath("/")
+           .setPageName("web/html/index.html")
+           .setGetRequest((params) -> {
+           return new HashMap<>();
+           })
+           .setPostRequest((getParams, postParams) -> {
+           return new HashMap<>();
+           })
+           .getPageMapper());
+
+           Server server = new Server();
+           server.execute();
+}
+        </code>
+        <h2>
+            In your project folder you should create html file<br>
+            The full path to this file will look as<br>
+            {project folder}/web/html/index.html
+        </h2>
+        <h2>
+            This file should contain some text...
+        </h2>
+        <code>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Hello world!&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    Hello world!
+&lt;/body&gt;
+&lt;/html&gt;
+        </code>
+        <h2>
+            That's all! You created your web application
+        </h2>
+    </div>
+    <div class="main_block documentation">
+        <h2>
+            You can see the full documentation here:
+        </h2>
+        <a href="documentation.html" class="doc" ${src}="documentation.html">Documentation</a>
+    </div>
+    <div class="main_block documentation">
+        <h2>
+            All source code is in our github repository:
+        </h2>
+        <a href="https://github.com" class="github">GitHub</a>
+    </div>
+</body>
+</html>

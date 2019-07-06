@@ -1,0 +1,42 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.main_block{
+    margin: 30px 50px;
+    padding: 30px 10px;
+    background-color: darkgrey;
+}
+.main_block h1, h2{
+    color: white;
+    text-align: center;
+}
+.main_block code{
+    margin: auto;
+    display: block;
+    width: 50%;
+    color: black;
+    white-space: pre;
+    background-color: white;
+    padding: 15px;
+}
+.main_block .doc {
+    text-decoration: none;
+    background-color: yellow;
+    color: black;
+    font-weight: bold;
+    padding: 20px;
+}
+.main_block .github {
+    text-decoration: none;
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+    padding: 15px 20px;
+}
+.main_block.documentation{
+    text-align: center;
+}
+.main_block.documentation h2{
+    margin-bottom: 30px;
+}
