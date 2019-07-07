@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mappers</title>
+    <link rel="stylesheet" type="text/css" href="../css/mappers.css" ${src}="../css/mappers.css">
+</head>
+<body>
+<div class="menu">
+    <ul>
+        <li>
+            <a href="server">Server</a>
+        </li>
+        <li>
+            <a href="executors">Executors</a>
+        </li>
+        <li>
+            <a href="#">Mappers</a>
+        </li>
+        <li>
+            <a href="requests">Requests</a>
+        </li>
+    </ul>
+</div>
+<div class="main_block">
+    <h2>
+        Package mappers contains two classes: PageMapperBuilder and PageMapperContainer
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        com.server.mappers.PageMapperBuilder
+    </h2>
+    <h2>
+        This class realizes Builder pattern using internal class PageMapper.<br>
+        These two classes forming html page mapping procedure.
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        PageMapperBuilder()
+    </h2>
+    <h2>
+        Constructor without parameters, creates new PageMapper object.
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        PageMapperBuilder setPath(String path)
+    </h2>
+    <h2>
+        Sets url path for page. For example /server
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        PageMapperBuilder setPageName(String pageName)
+    </h2>
+    <h2>
+        Sets relative path from project to html file.
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        PageMapperBuilder setGetRequest(GetRequest getRequest)
+    </h2>
+    <h2>
+        Sets get request as lambda expression. Params are get parameters from request.<br>
+        Get request always returns Map of variables.<br>
+        You can create your variables to put them from java code to html file.<br>
+        You can see syntax from this example:
+    </h2>
+    <code>
+...
+.setGetRequest(params -> {
+    Map&lt;String, String&gt; vars = new HashMap&lt;&gt;();
+    vars.put("hello", "Hello World");
+    return vars;
+}
+...
+    </code>
+    <h2></h2>
+    <code>
+ &lt;!DOCTYPE html&gt;
+ &lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        ${hello}
+    &lt;/body&gt;
+ &lt;/html&gt;
+    </code>
+    <h2>
+        When you are importing different files like images, js files, etc by attribute src, or like css files by attribute href,<br>
+        you should duplicate path to them, using attribute ${src}
+    </h2>
+    <code>
+&lt;link rel="stylesheet" type="text/css" href="../css/mappers.css"
+        ${src}="../css/mappers.css"&gt;
+    </code>
+    <h2>or</h2>
+    <code>
+&lt;img src="example.jpg" ${src}="example.jpg"&gt;
+    </code>
+    <h2>
+        else you should map them by hands.
+    </h2>
+</div>
+<div class="main_block">
+    <h2>PageMapperBuilder setPostRequest(PostRequest postRequest)</h2>
+    <h2>
+        Has the same rules as get request. Gets post and get parameters as arguments.
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        PageMapperBuilder setHtml(String html)
+    </h2>
+    <h2>
+        Gives an opportunity to set html from code without using files.
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        PageMapper getPageMapper()
+    </h2>
+    <h2>
+        Returns builded PageMapper entity
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        com.server.mappers.PageMapperContainer
+    </h2>
+    <h2>
+        It is a container for all mapped pages. Realizes pattern singleton.
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        PageMapperContainer getInstance()
+    </h2>
+    <h2>
+        Returns an instance of PageMapperContainer
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        synchronized void addPage(PageMapperBuilder.PageMapper pageMapper)
+    </h2>
+    <h2>
+        Adds PageMapper to the container
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        PageMapperBuilder.PageMapper getPage(String path)
+    </h2>
+    <h2>
+        Gets PageMapper from container by path
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        void deletePage(String path)
+    </h2>
+    <h2>
+        Deletes PageMapper from container by path
+    </h2>
+</div>
+</body>
+</html>

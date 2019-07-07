@@ -1,0 +1,41 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+.menu {
+    background-color: darkgrey;
+    margin-bottom: 30px;
+}
+.menu ul{
+    padding: 0;
+    margin: 0 40px 0 0;
+    display: flex;
+    list-style: none;
+    justify-content: flex-end;
+}
+.menu li{
+    margin-right: 20px;
+}
+.menu a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: large;
+    padding: 20px;
+}
+.menu a:hover{
+    background-color: white;
+    color: darkgrey;
+}
+.main_block{
+    background-color: darkgrey;
+    margin-bottom: 30px;
+    margin-right: 50px;
+    margin-left: 50px;
+    padding: 30px 10px;
+}
+.main_block h2{
+    color: white;
+    text-align: center;
+}

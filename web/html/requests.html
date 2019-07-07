@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Requests</title>
+    <link rel="stylesheet" type="text/css" href="../css/requests.css" ${src}="../css/requests.css">
+</head>
+<body>
+<div class="menu">
+    <ul>
+        <li>
+            <a href="server">Server</a>
+        </li>
+        <li>
+            <a href="executors">Executors</a>
+        </li>
+        <li>
+            <a href="mappers">Mappers</a>
+        </li>
+        <li>
+            <a href="#">Requests</a>
+        </li>
+    </ul>
+</div>
+<div class="main_block">
+    <h2>
+        Package requests contains two interfaces GetRequest and PostRequest
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        com.server.requests.GetRequest
+    </h2>
+    <h2>
+        Describes request method get
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        Map&lt;String, String&gt; execute(Map&lt;String, String&gt; params);
+    </h2>
+    <h2>
+        Gets get parameters and returns user's variables.
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        com.server.requests.PostRequest
+    </h2>
+    <h2>
+        Describes request method post
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        Map&lt;String, String&gt; execute(Map&lt;String, String&gt; getParams, Map&lt;String, String&gt; postParams);
+    </h2>
+    <h2>
+        Gets get and post parameters, returns user's variables.
+    </h2>
+</div>
+</body>
+</html>

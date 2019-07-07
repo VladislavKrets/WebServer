@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Executors</title>
+    <link rel="stylesheet" type="text/css" href="../css/executors.css" ${src}="../css/executors.css">
+</head>
+<body>
+<div class="menu">
+    <ul>
+        <li>
+            <a href="server">Server</a>
+        </li>
+        <li>
+            <a href="#">Executors</a>
+        </li>
+        <li>
+            <a href="mappers">Mappers</a>
+        </li>
+        <li>
+            <a href="requests">Requests</a>
+        </li>
+    </ul>
+</div>
+<div class="main_block">
+    <h2>
+        Package executors contains two classes: Connection and View
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        com.server.executors.Connection
+    </h2>
+    <h2>
+        Class Connection is a Thread. It gets Socket and handles connection with browser
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        Connection(Socket socket)
+    </h2>
+    <h2>
+        Constructor gets he socket to handle
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        void run()
+    </h2>
+    <h2>
+        Overrided method of superclass Thread. Gets InputStream and OutputStream from socket, makes requests and responses.
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        com.server.executors.View
+    </h2>
+    <h2>
+        It is util class. It forms html page using get and post requests, user's variables, maps css, js and other util files.
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        View(PageMapperBuilder.PageMapper pageMapper, OutputStream outputStream, Map&lt;String, String&gt; request)
+    </h2>
+    <h2>
+        Constructor gets all necessary entities to form html page and send it to request
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        void postExecute(PostRequest postRequest, Map&lt;String, String&gt; getParams, Map&lt;String, String&gt; postParams)
+    </h2>
+    <h2>
+        Executes post response using get and post parameters
+    </h2>
+</div>
+<div class="main_block">
+    <h2>
+        getExecute(GetRequest getRequest, Map&lt;String, String&gt; getParams)
+    </h2>
+    <h2>
+        Executes get response using get parameters
+    </h2>
+</div>
+</body>
+</html>
