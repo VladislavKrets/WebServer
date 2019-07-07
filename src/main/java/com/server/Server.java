@@ -1,6 +1,7 @@
 package com.server;
 
 import com.server.executors.Connection;
+import com.server.logger.Logger;
 import com.server.mappers.PageMapperBuilder;
 import com.server.mappers.PageMapperContainer;
 
@@ -10,6 +11,7 @@ import java.util.HashMap;
 
 public class Server {
     private int port;
+    private Logger logger;
 
     public Server(){
         this(8080);
@@ -17,6 +19,7 @@ public class Server {
 
     public Server(int port) {
         this.port = port;
+        logger = new Logger();
     }
 
     public void execute() {
@@ -31,8 +34,10 @@ public class Server {
                 .getPageMapper());
         try {
             ServerSocket serverSocket = new ServerSocket(port);
+            logger.printConsoleLog("server was started on port " + port);
             while (true) {
                 new Connection(serverSocket.accept()).start();
+                logger.printConsoleLog("connection accepted");
             }
         } catch (IOException e) {
             e.printStackTrace();

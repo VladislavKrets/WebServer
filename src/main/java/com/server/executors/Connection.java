@@ -1,5 +1,6 @@
 package com.server.executors;
 
+import com.server.logger.Logger;
 import com.server.mappers.PageMapperBuilder;
 import com.server.mappers.PageMapperContainer;
 
@@ -11,8 +12,10 @@ import java.util.Map;
 public class Connection extends Thread{
 
     private Socket socket;
+    private Logger logger;
     public Connection(Socket socket) {
         this.socket = socket;
+        logger = new Logger();
     }
 
     @Override
@@ -26,6 +29,7 @@ public class Connection extends Thread{
                     ? new HashMap<>() : getUrlParameters(request.get("getParams"));
             Map<String, String> postParams = request.get("postParams") == null
                     ? new HashMap<>() : getUrlParameters(request.get("postParams"));
+            logger.printConsoleLog(request.get("method") + " method on " + request.get("path"));
             String headers = request.get("http") + " 200 OK\r\n\r\n";
             outputStream.write(headers.getBytes());
             PageMapperBuilder.PageMapper pageMapper = PageMapperContainer.getInstance()
