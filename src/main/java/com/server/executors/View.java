@@ -33,9 +33,10 @@ public class View {
             else if (isFiletypesCompatible()) {
                 fileText = HTMLFile(pageMapper
                         .getPageName());
-
-                Map<String, String> variables = getRequest.execute(getParams);
-                fileText = replaceVariables(fileText, variables);
+                if (getRequest != null) {
+                    Map<String, String> variables = getRequest.execute(getParams);
+                    fileText = replaceVariables(fileText, variables);
+                }
                 //mapCss(fileText, pageMapperContainer);
                 mapSrc(fileText, pageMapperContainer);
 
@@ -58,9 +59,10 @@ public class View {
             if (isFiletypesCompatible()) {
                 fileText = HTMLFile(pageMapper
                         .getPageName());
-
-                Map<String, String> variables = postRequest.execute(getParams, postParams);
-                fileText = replaceVariables(fileText, variables);
+                if (postRequest != null) {
+                    Map<String, String> variables = postRequest.execute(getParams, postParams);
+                    fileText = replaceVariables(fileText, variables);
+                }
                 //mapCss(fileText, pageMapperContainer);
                 mapSrc(fileText, pageMapperContainer);
 
